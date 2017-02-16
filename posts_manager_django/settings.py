@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'posts_manager_django.app'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'posts_manager_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'posts.db'),
+        'NAME': os.path.join(BASE_DIR, 'data/posts.db'),
     }
 }
 
