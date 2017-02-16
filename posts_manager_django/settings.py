@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'posts_manager_django.urls'
+ROOT_URLCONF = 'posts_manager_django.app.urls'
 
 TEMPLATES = [
     {

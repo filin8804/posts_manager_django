@@ -1,0 +1,29 @@
+.content {
+	width: 40%;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.content table {
+	width: 100%;
+}
+
+.btn-add-post {
+	margin-top: 20px;
+}
+
+.add-post-form textarea {
+	width: calc(100% - 40px);
+}
+
+.add-post-form select, .add-post-form input {
+	width: 100%;
+}
+
+.add-post-form .lb-author{
+	margin-top: 20px;
+}
+
+.add-post-form  .btn-view-posts{
+	margin-top: 30px;
+}

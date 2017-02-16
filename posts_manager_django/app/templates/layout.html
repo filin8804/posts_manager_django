@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>{{ title }}</title>
+  <meta name="description" content="Simple posts app">
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body>
+   {% block content %} 
+   {% endblock content %}
+</body>
+</html>

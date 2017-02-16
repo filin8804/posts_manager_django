@@ -1,0 +1,27 @@
+{% extends "layout.html" %} {% block content %}
+<div class="content">
+	<h1>Add Post</h1>
+	<form class="pure-form pure-form-stacked add-post-form">
+		<div class="pure-g">
+			<div class="left pure-u-2-3">
+		        <label for="text">Text</label>
+		        <textarea id="text" rows="6" cols="1" placeholder="Enter post text"></textarea>
+		         <button class="pure-button pure-button-primary btn-add-post">Submit</button>
+			</div>
+			
+			<div class="right pure-u-1-3">
+		        <label for="category">Category</label>
+		        <select id="category">
+		        	{% for c in all_categories %}
+		        		<option value="{{ c.id }}">{{ c.name }}</option>
+		        	{% endfor %}
+		        </select>
+				
+		        <label for="author" class="lb-author">Author</label>
+				<input id="author" type="text" placeholder="Author">
+		        <a class="pure-button pure-button-primary btn-view-posts" href="/">View Posts</a>
+	        </div>
+        </div>
+	</form>
+</div>
+{% endblock content %}
