@@ -9,8 +9,8 @@ def post_add(request):
     if request.method == 'POST':
         json_post = json.loads(request.body)          
         json_post = json_post['post']
-        post_category = Category.objects.get(id=json_post["categoryId"])
-        post = Post(text = json_post["author"], author = json_post["author"], category = post_category)
+        post_category = Category.objects.get(id=json_post['categoryId'])
+        post = Post(text = json_post['author'], author = json_post['author'], category = post_category)
         post.save()
         message = 'Post saved'
         return JsonResponse({'status':'OK', 'message' : message})
