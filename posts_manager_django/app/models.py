@@ -7,4 +7,4 @@ class Category(models.Model):
 class Post(models.Model):
     text = models.TextField()
     author = models.CharField(max_length=255)
-    category = models.OneToOneField(Category)
+    category = models.ForeignKey(Category, unique=False)

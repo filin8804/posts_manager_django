@@ -4,10 +4,12 @@ var Post = function(){
   var author = "";
   var categoryId = null;
   
+  var self = this; //For access inside callbacks
+  
   this.fillWithFormOnPage = function(){
 	  this.text = document.getElementById("text").value;
 	  this.author = document.getElementById("author").value;
-	  this.categoryId = document.getElementById("category").value;
+	  this.categoryId = parseInt(document.getElementById("category").value);
   }
   
   this.isValid = function(){
@@ -19,13 +21,19 @@ var Post = function(){
 		  Post.element_loader.style.display = 'block';		  
 		  var xhr = new XMLHttpRequest();
 		  xhr.open("POST", Post.URL_ADD, true);
-		  xhr.setRequestHeader('Content-Type', 'application/json');
+		  xhr.setRequestHeader("Content-Type", "application/json");
 		  xhr.onreadystatechange = function() {
 			  	Post.element_loader.style.display = 'none';
 			    if(xhr.readyState == 4 && xhr.status == 200) { //successful response
-			        alert(http.responseText);
+			        var response = JSON.parse(xhr.responseText);
+			        if (response.status == "OK"){
+			        	self.printAddStatusMessage(Post.MESSAGE_ADDED, true);
+			        }else{
+			        	self.printAddStatusMessage(Post.MESSAGE_SOMETHING_WRONG, false);
+			        }
 			    }
 		  }
+		  xhr.setRequestHeader("X-CSRFToken", window.CSRF_TOKEN);
 		  xhr.send(JSON.stringify({
 		      post: this
 		  }));
@@ -45,7 +53,8 @@ var Post = function(){
 Post.URL_ADD = "/post/add";
 Post.MESSAGE_NOT_VALID = "Post is not valid. Please check the form."
 Post.MESSAGE_ADDED = "Post added."
-
+Post.MESSAGE_SOMETHING_WRONG = "Something went worng:("
+		
 Post.element_loader = document.getElementById("postLoader");
 
 Post.bindUIEvents = function(){
